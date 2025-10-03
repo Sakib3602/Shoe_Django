@@ -6,8 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <style>
+    /* Tailwind doesn’t include a float up/down keyframe by default, so we add one here inline */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+  <link rel="stylesheet" href="{% static 'css/H.css' %}">
 </head>
-<body>
-    <p class="text-[200px] text-red-600">HOME</p>
+<body class="h">
+    <div class="h-8 font-sans font-semibold w-full bg-black text-white flex items-center justify-center text-sm">
+      Free Shipping on Orders Over $50!
+
+    </div>
+    <nav class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <!-- Brand Name -->
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-gray-800">Sho-Era</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="#" class="text-gray-700 hover:text-black">Home</a>
+          <a href="#" class="text-gray-700 hover:text-black">Products</a>
+          <a href="#" class="text-gray-700 hover:text-black">Carts</a>
+          <a href="#" class="text-gray-700 hover:text-black">Orders</a>
+          <a href="#" class="text-gray-700 hover:text-black">Dashboard</a>
+          <a href="#"
+             class="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800">
+            Get Start
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <div class="flex items-center md:hidden">
+          <button id="menu-btn" class="text-gray-800 focus:outline-none">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+      <a href="#" class="block text-gray-700 hover:text-black">Home</a>
+      <a href="#" class="block text-gray-700 hover:text-black">Products</a>
+      <a href="#" class="block text-gray-700 hover:text-black">Carts</a>
+      <a href="#" class="block text-gray-700 hover:text-black">Orders</a>
+      <a href="#" class="block text-gray-700 hover:text-black">Dashboard</a>
+      <a href="#"
+         class="block text-center px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800">
+        Get Start
+      </a>
+    </div>
+  </nav>
+
+
+  {% block allHere %}
+  {% include "Hero.html" %}
+  {% include "Products.html" %}
+  
+  {% endblock allHere %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Toggle mobile menu
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
