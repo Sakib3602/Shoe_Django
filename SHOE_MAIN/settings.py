@@ -76,10 +76,15 @@ WSGI_APPLICATION = 'SHOE_MAIN.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'shoe_hub',
+        'USER': 'postgres',
+        'PASSWORD': 'sakib',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation

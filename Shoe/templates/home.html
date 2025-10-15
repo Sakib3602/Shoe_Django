@@ -16,6 +16,12 @@
     .animate-float {
       animation: float 3s ease-in-out infinite;
     }
+     .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   </style>
   <link rel="stylesheet" href="{% static 'css/H.css' %}">
 </head>
@@ -72,6 +78,7 @@
   {% block allHere %}
   {% include "Hero.html" %}
   {% include "Products.html" %}
+  {% comment %} {% include "Paralax.html" %} {% endcomment %}
   
   {% endblock allHere %}
 
