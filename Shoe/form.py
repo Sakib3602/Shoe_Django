@@ -3,7 +3,7 @@ from Shoe.models import Shoe, Catagory
 
 class Add_Shoe_Form(forms.ModelForm):
     # Category dropdown with Tailwind styling
-    category = forms.ModelChoiceField(
+    Catagory = forms.ModelChoiceField(  # Use the correct field name
         queryset=Catagory.objects.all(),
         empty_label="Select a Category",
         widget=forms.Select(attrs={
@@ -11,8 +11,6 @@ class Add_Shoe_Form(forms.ModelForm):
         })
     )
 
-   
-
     class Meta:
         model = Shoe
-        fields = ['name', 'description', 'price', 'image', 'category']
+        fields = ['name', 'description', 'price', 'image', 'Catagory']  # Use 'Catagory' here

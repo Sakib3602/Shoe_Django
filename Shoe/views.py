@@ -9,6 +9,7 @@ def Add_Product(request):
     if request.method == "POST":
         form = Add_Shoe_Form(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             print(form.cleaned_data)
     
     print("ssc")
