@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="{% static "userCSS.css" %}">
+  </head>
+  <body>
+    <!-- From Uiverse.io by alexruix -->
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="form-box">
+        <form class="form">
+          <span class="title">Log in</span>
+          <span class="subtitle">Log in now.</span>
+          <div class="form-container">
+            <input type="text" class="input" placeholder="Full Name" />
+            <input type="email" class="input" placeholder="Email" />
+            <input type="password" class="input" placeholder="Password" />
+          </div>
+          <button>Login</button>
+        </form>
+        <div class="form-section">
+          <p>Have an account? <a href="{% url "signup" %}">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
