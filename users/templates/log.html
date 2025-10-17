@@ -12,12 +12,13 @@
     <!-- From Uiverse.io by alexruix -->
     <div class="min-h-screen flex items-center justify-center">
       <div class="form-box">
-        <form class="form">
+        <form class="form" method="POST">
+            {% csrf_token %}
           <span class="title">Log in</span>
           <span class="subtitle">Log in now.</span>
           <div class="form-container">
             
-            <input type="email" name="email" class="input" placeholder="Email" />
+            <input type="text" name="username" class="input" placeholder="Email" />
             <input type="password" name="password" class="input" placeholder="Password" />
           </div>
           <button>Login</button>
