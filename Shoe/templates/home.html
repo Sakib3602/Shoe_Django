@@ -46,12 +46,12 @@
           <a href="#" class="text-gray-700 hover:text-black">Orders</a>
           <a href="#" class="text-gray-700 hover:text-black">Dashboard</a>
           {% if user.is_authenticated %}
-           <a href="#"
+           <a href="{% url "logout" %}"
              class="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800">
             Log Out
           </a>
           {% else %}
-          <a href="#"
+          <a href="{% url "signin" %}"
              class="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800">
             Get Start
           </a>
@@ -89,6 +89,52 @@
   {% comment %} {% include "Paralax.html" %} {% endcomment %}
   
   {% endblock allHere %}
+
+
+
+
+  <footer class="bg-black text-white py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Top section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Logo / About -->
+        <div>
+          <h2 class="text-2xl font-semibold mb-2">Shoe-Era</h2>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Your trusted Show brand bringing elegance and comfort together.  
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-lg font-semibold mb-3">Quick Links</h2>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#" class="hover:text-white transition">Home</a></li>
+            <li><a href="#" class="hover:text-white transition">Shop</a></li>
+            <li><a href="#" class="hover:text-white transition">About</a></li>
+            <li><a href="#" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h2 class="text-lg font-semibold mb-3 ">Get in Touch</h2>
+          <ul class="space-y-2 text-gray-300 text-sm">
+            <li>Email: support@shoeera.com</li>
+            <li>Phone: +880 1234-567890</li>
+            <li>Location: Dhaka, Bangladesh</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t  border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+        © 2025 Shoe-Era. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
 
 

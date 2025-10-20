@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 # Create your views here.
 def SignUp(request):
     if request.method == "POST":  
@@ -25,6 +25,14 @@ def SignIn(request):
         user = authenticate(request, username=name, password=password)
         if user is not None:
             login(request, user)
-            print("Log in Successful")
-            return redirect("/")
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+            return redirect('/')
+            
     return render(request, "log.html")
+    
+
+def logOut_User(request):
+    logout(request)
+    return render(request, "home.html")

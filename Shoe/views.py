@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from Shoe.form import Add_Shoe_Form
 from Shoe.models import Shoe
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     x = Shoe.objects.select_related("Catagory").all()
@@ -13,6 +14,7 @@ def Details_Page(request,id):
     
     return render(request, 'details_page/details.html',{ "shoe" : x})
 
+@login_required(login_url='signin')
 def Add_Product(request):
     form = Add_Shoe_Form()
     if request.method == "POST":
